@@ -2,8 +2,9 @@ Puppet Openstack Specifications
 ===============================
 
 This git repository is used to hold approved design specifications for additions
-to the Puppet Openstack projects.  Reviews of the specs are done in gerrit, using
-a similar workflow to how we review and merge changes to the code itself.
+to the Puppet modules for Openstack projects.  Reviews of the specs are done
+in gerrit, using a similar workflow to how we review and merge changes
+to the code itself.
 
 The layout of this repository is::
 
