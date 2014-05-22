@@ -3,12 +3,13 @@ Puppet Openstack Specifications
 
 This git repository is used to hold approved design specifications for additions
 to the Puppet modules for Openstack projects.  Reviews of the specs are done
-in gerrit, using a similar workflow to how we review and merge changes
+in Gerrit, using a similar workflow to how we review and merge changes
 to the code itself.
 
-The layout of this repository is::
-
+The layout of this repository is:
+```
   specs/<release>/
+```
 
 You can find a template spec in `specs/template.rst`.
 
@@ -25,10 +26,19 @@ Prior to the Juno development cycle, this repository was not used for spec
 reviews. However, backporting proposals to Icehouse may be made here.
 
 Please note, Launchpad blueprints are still used for tracking the
-current status of blueprints. For more information, see::
-
+current status of blueprints. For more information, see:
+```
   https://wiki.openstack.org/wiki/Blueprints
+```
 
-For more information about working with gerrit, see::
-
+For more information about working with gerrit, see:
+```
   https://wiki.openstack.org/wiki/Gerrit_Workflow
+```
+
+Attribution
+===========
+This work and `specs/template.rst`, are derived from the original works at:
+```
+  https://github.com/openstack/nova-specs
+```
