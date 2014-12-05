@@ -33,7 +33,7 @@ current status of blueprints. For more information, see:
 
 For more information about working with gerrit, see:
 ```
-  https://wiki.openstack.org/wiki/Gerrit_Workflow
+  http://docs.openstack.org/infra/manual/developers.html#development-workflow
 ```
 
 Attribution
