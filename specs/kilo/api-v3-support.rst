@@ -336,7 +336,7 @@ config file.  The module local request method (e.g. `glance_request`) will need
 to be able to pass in the user domain, project domain, and other v3
 authentication parameters from its config file as authentication arguments.
 
-* Use `keystone::resource::authconfig` and the new `keystone_authtoken` parameters in config files
+* Use `keystone::resource::authtoken` and the new `keystone_authtoken` parameters in config files
 
 The application config files are usually managed with a config resource.  For
 example, the file `/etc/glance/glance-api.conf` is managed with a
@@ -345,7 +345,7 @@ with a `glance_registry_config` resource, etc.  The config section that
 contains the Keystone authentication parameters is `keystone_authtoken`.  For
 v3, there are some name changes (`admin_user => username`) and several new
 parameters for domains and other v3 resources.  To make it easier to manage
-this section, a new Keystone resource `keystone::resource::authconfig` has been
+this section, a new Keystone resource `keystone::resource::authtoken` has been
 added.  For example, instead of doing this::
 
     glance_api_config {
@@ -358,7 +358,7 @@ added.  For example, instead of doing this::
 
 manifests should do this instead::
 
-    keystone::resource::authconfig { 'glance_api_config':
+    keystone::resource::authtoken { 'glance_api_config':
       username            => $keystone_user,
       password            => $keystone_password,
       auth_url            => $real_identity_uri,
@@ -370,10 +370,10 @@ manifests should do this instead::
       ...
     }
 
-The use of `keystone::resource::authconfig` makes it easy to avoid mistakes,
+The use of `keystone::resource::authtoken` makes it easy to avoid mistakes,
 and makes it easier to support some of the newer authentication types coming
 with Keystone Kilo and later, such as Kerberos, Federation, etc.
-`keystone::resource::authconfig` knows how to handle the case where the
+`keystone::resource::authtoken` knows how to handle the case where the
 `username` is specified as `user::domainname` and will use the `domainname` part
 as the `user_domain_name` if the `user_domain_name` is not provided.  Same with
 `project_name`.
@@ -455,7 +455,7 @@ depending upon if it is a new class or an addition to an existing class.
 
   * Name
 
-    keystone::resource::authconfig
+    keystone::resource::authtoken
 
   * Description
 
@@ -463,17 +463,17 @@ depending upon if it is a new class or an addition to an existing class.
     authentication parameters in application config files which use a
     `*_config` resource.
     The username and project_name parameters may be given in the form
-    "name::domainname".  The authconfig resource will use the domains in
+    "name::domainname".  The authtoken resource will use the domains in
     the following order:
     1) The given domain parameter (user_domain_name or project_domain_name)
     2) The domain given as the "::domainname" part of username or project_name
     3) The default_domain_name
 
-  * Parameters for keystone::resource::authconfig
+  * Parameters for keystone::resource::authtoken
 
     [*name*]
     The name of the resource corresponding to the config file.  For example,
-    keystone::authconfig { 'glance_api_config': ... }
+    keystone::authtoken { 'glance_api_config': ... }
     Where 'glance_api_config' is the name of the resource used to manage
     the glance api configuration.
     string; required
@@ -567,7 +567,7 @@ depending upon if it is a new class or an addition to an existing class.
 
   * Example use::
 
-      keystone::resource::authconfig { 'glance_api_config':
+      keystone::resource::authtoken { 'glance_api_config':
         username            => $keystone_user,
         password            => $keystone_password,
         auth_url            => $real_identity_uri,
@@ -702,14 +702,14 @@ puppet-keystone
 * Add default domain support to class keystone
 * Add admin user domain, admin tenant domain, and service tenant domain to
   class keystone::roles::admin
-* Create keystone::resource::authconfig
+* Create keystone::resource::authtoken
 * Convert keystone_service and keystone_endpoint to use the v3 api
 * Convert keystone_role to use the v3 api
 
 Other puppet-modules
 
 * Allow specifying the domain for users and projects
-* Use `keystone::resource::authconfig` and the new `keystone_authtoken`
+* Use `keystone::resource::authtoken` and the new `keystone_authtoken`
   parameters in config files
 * Do not use a version suffix in Keystone authentication URLs
 
