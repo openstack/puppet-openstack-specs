@@ -105,10 +105,11 @@ method and an endpoint method, both of which will accept parameters that can
 be passed from a type's parameters as well as the service being utilized. The
 providers in the openstack modules will use this class as a :parent, e.g.::
 
-Puppet::Type.type(:keystone_service).provide(
-  :aviator,
-  :parent => Puppet::Provider::Aviator
-) do
+    Puppet::Type.type(:keystone_service).provide(
+      :aviator,
+      :parent => Puppet::Provider::Aviator
+    ) do
+
 
 The authenticate method will replace methods like auth_keystone and
 auth_neutron. The endpoint method will replace methods like get_admin_endpoint

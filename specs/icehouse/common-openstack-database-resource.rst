@@ -86,7 +86,7 @@ Module API impact
 
 * Example use case for openstacklib::db::mysql:
 
-  In ::nova::db::mysql:
+  In ::nova::db::mysql::
 
     ::openstacklib::db::mysql { 'nova':
       password_hash => '2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19',
@@ -97,7 +97,7 @@ Module API impact
   would not allow other hosts access to the database. It will re-execute the
   'nova-db-sync' exec when the database refreshes.
 
-  Another example in ::keystone::db::mysql:
+  Another example in ::keystone::db::mysql::
 
     ::openstacklib::db::mysql { 'keystone':
       password_hash  => '2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19',
@@ -125,7 +125,7 @@ Module API impact
 
 * Example use case for openstacklib::db::postgresql
 
-  In ::nova::db::postgresql:
+  In ::nova::db::postgresql::
 
     ::openstacklib::db::postgresql { 'nova':
       password_hash => '2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19',
@@ -135,7 +135,7 @@ Module API impact
   would create a postgresql database called 'nova' with user 'nova'. It will
   re-execute the 'nova-db-sync' exec when the database refreshes.
 
-  Another example in ::keystone::db::postgresql:
+  Another example in ::keystone::db::postgresql::
 
     ::openstacklib::db::postgresql { 'keystone':
       password_hash => '2470C0C06DEE42FD1618BB99005ADCA2EC9D1E19',

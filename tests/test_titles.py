@@ -38,7 +38,7 @@ class TestTitles(testtools.TestCase):
         return titles
 
     def _check_titles(self, titles):
-        self.assertEqual(8, len(titles))
+        self.assertEqual(7, len(titles))
 
         problem = 'Problem description'
         self.assertIn(problem, titles)
@@ -50,12 +50,10 @@ class TestTitles(testtools.TestCase):
             [
                 'Alternatives',
                 'Data model impact',
-                'REST API impact',
-                'Security impact',
-                'Pipeline impact',
-                'Other end user impact',
-                'Performance/Scalability Impacts',
-                'Other deployer impact',
+                'Module API impact',
+                'End user impact',
+                'Performance Impact',
+                'Deployer impact',
                 'Developer impact',
             ],
             titles[proposed])

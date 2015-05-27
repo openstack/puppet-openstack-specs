@@ -86,7 +86,7 @@ Module API impact
 
 * Example use case for openstacklib::service_identity:
 
-  In ::nova::keystone::auth:
+  In ::nova::keystone::auth::
 
     ::openstacklib::service_identity { 'nova':
       password         => 'secrete',

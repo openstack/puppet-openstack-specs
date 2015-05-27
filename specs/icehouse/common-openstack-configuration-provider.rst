@@ -47,12 +47,25 @@ We could also try proposing our features and changes to upstream so
 we don't have to maintain them anymore. Those changes might however not
 fit the vision of upstream, like the capitalization of boolean values.
 
+Data model impact
+-----------------
+
+None
 
 Module API impact
 -----------------
 
 This proposition does not include any change to any module API.
 
+End user impact
+---------------
+
+None
+
+Performance Impact
+------------------
+
+None
 
 Deployer impact
 ---------------
@@ -62,6 +75,10 @@ This proposition introduces a new mandatory dependency on openstacklib.
 Those deploying from the master branch and/or using Puppetfile would need to
 install the openstacklib puppet module.
 
+Developer impact
+----------------
+
+None
 
 Implementation
 ==============
@@ -95,6 +112,10 @@ Testing
 * Unit test fixtures of all puppet modules would need to be updated
   to install openstacklib.
 
+Documentation Impact
+====================
+
+None
 
 References
 ==========
