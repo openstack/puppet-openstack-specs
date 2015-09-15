@@ -33,31 +33,19 @@ and the other to configure Keystone as an Identity Provider.
 
 * Service Provider
 
- There will be a class service_provider to configure Keystone as a Service
- Provider. There are two major protocols (OpenID Connect and SAML) and three
- different ways to configure: OpenID Connect, Shibboleth and Mellon.
- Packages and extra configuration will be applied according to the choice
- made, the three possible choices are: OpenID Connect, Mellon and Shibboleth.
+ Keystone as Service Provider can be configured in three different ways:
+  - Using OpenID Connect protocol.
+  - Using SAML protocol with mellon module.
+  - Using SAML protocol with Shibboleth module.
+
+ Each possibility mentioned above will have a class with the proper
+ attributes to configure Keystone files.
 
  As attributes for this class we can have:
-
-  - entityID:
-    Is the globally unique name for a SAML entity, must be a URI and should be
-    an absolute URL.
-  - idps_urls:
-    A list containing all the Identity Providers urls. All urls are in format
-    <address>:<port>. This will be used to set the configurations in Keystone
-    and Apache. This list should contain one or more urls to be valid.
-  - metadata_urls:
-    A list containing one metadata_url for each Identity Provider in idps_urls.
-  - protocol:
-    The protocol used to provide Federation. There is support for two
-    protocols: OpenID Connect and SAML
-  - module:
-    The name of the Apache module to install. This will be used to guide the
-    installation and configuration of a Service Provider. The value of this
-    attribute should be the name of one of the modules available.
-    Available modules name are: shibboleth and mellon.
+  - method:
+    The method to be used for federation authentication.
+  - plugin:
+    The plugin for the authentication method.
 
 * Identity Provider
 
@@ -172,13 +160,11 @@ to apply during or after Keystone is installed and running over apache.
 
 ``site.pp`` example - Keystone as a Service Provider using Mellon::
 
- class { 'keystone::federation::service_provider':
+ class { 'keystone::federation::mellon':
   idps_urls        => 'https://ipa.rdodom.test/idp',
   saml_dir         => '/etc/httpd/saml2/test',
   http_conf        => '/etc/httpd/conf.d/keystone-mellon.conf',
   service          => 'keystone',
-  protocol         => 'SAML',
-  module           => 'mellon',
   saml_base        => '/v3',
   saml_auth        => 'OS-FEDERATION/identity_providers/ipsilon/protocols/saml2/auth',
   saml_sp          => 'mellon',
@@ -243,11 +229,11 @@ Work Items
   the extra configurations to the Keystone configuration file and install all
   necessary packages to make Keystone work as Identity Provider.
 * Write tests to ensure that the Identity Provider configuration is valid.
-* Create a class for a Service Provider and acording to the protocol apply the
-  necessary configuration.
-* Write tests to ensure that the Service Provider configuration is valid for
-  both modules (Shibboleth, Mellon and OpenID)
-
+* Create one class for each possibility of Service Provider.
+* Write tests to ensure that each class of Service Provider is valid.
+* Provide documentation in README to explain how to use federation classes
+* Provide some manifest example in examples directory with a real deployment
+  with shibboleth, by using eventual external module for that.
 
 Dependencies
 ============
@@ -259,7 +245,7 @@ Testing
 =======
 
 * Create spec tests files for each configurable parameter used by the new
-  Identity/Service Provider classes, to ensure that all applied settings
+  Identity/Service Providers classes, to ensure that all applied settings
   are valid.
 * Create functional tests with acceptance.
 
