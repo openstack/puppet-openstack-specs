@@ -36,13 +36,13 @@ Liberty approved specs:
 
    specs/liberty/*
 
-Mitaka approved specs:
+Newton approved specs:
 
 .. toctree::
    :glob:
    :maxdepth: 1
 
-   specs/mitaka/*
+   specs/newton/*
 
 ==================
 Indices and tables
