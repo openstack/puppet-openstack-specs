@@ -29,7 +29,7 @@ resource is used in general context, for example in self.instances method.
 
 This has several consequences:
 
-1. It creates code duplication down the the road to work around the fact there
+1. It creates code duplication down the road to work around the fact there
 isn't authentication data provided in a general context, for example in keystone
 provider:
 
