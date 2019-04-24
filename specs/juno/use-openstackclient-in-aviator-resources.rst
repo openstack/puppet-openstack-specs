@@ -150,8 +150,8 @@ References
 ==========
 
 * Proofs of concept, still works in progress:
-  - Base provider: https://review.openstack.org/#/c/134843/
-  - keystone_tenant rewritten: https://review.openstack.org/#/c/134844/
+  - Base provider: https://review.opendev.org/#/c/134843/
+  - keystone_tenant rewritten: https://review.opendev.org/#/c/134844/
 
 * Mailing list discussion:
   - https://groups.google.com/a/puppetlabs.com/forum/#!topic/puppet-openstack/GJwDHNAFVYw
