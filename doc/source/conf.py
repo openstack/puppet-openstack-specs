@@ -47,7 +47,6 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'puppet-openstack-specs'
 copyright = u'%s, OpenStack Foundation' % datetime.date.today().year
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
@@ -68,25 +67,9 @@ html_theme_path = []
 html_theme = "openstackdocs"
 html_static_path = []
 
-# Output file base name for HTML help builder.
-htmlhelp_basename = '%sdoc' % project
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass
-# [howto/manual]).
-latex_documents = [
-    ('index',
-     '%s.tex' % project,
-     u'%s Documentation' % project,
-     u'OpenStack Foundation', 'manual'),
-]
-
 # Example configuration for intersphinx: refer to the Python standard library.
 #intersphinx_mapping = {'http://docs.python.org/': None}
 # openstackdocstheme options
 repository_name = 'openstack/puppet-openstack-specs'
 bug_project = 'puppet-openstack-specs'
 bug_tag = ''
-
-# Must set this variable to include year, month, day, hours, and minutes.
-html_last_updated_fmt = '%Y-%m-%d %H:%M'
