@@ -12,17 +12,14 @@
 # limitations under the License.
 
 import datetime
-import os
-import sys
 
-sys.path.insert(0, os.path.abspath('../..'))
+# sys.path.insert(0, os.path.abspath('../..'))
 # -- General configuration ----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     'openstackdocstheme',
-    'sphinx.ext.autodoc',
     #'sphinx.ext.intersphinx',
     'yasfb',
 ]
