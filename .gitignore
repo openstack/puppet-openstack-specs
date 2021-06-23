@@ -1,7 +1,0 @@
-.stestr/
-doc/build
-*.egg-info
-*.pyc
-.tox
-AUTHORS
-Changelog
